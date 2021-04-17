@@ -38,6 +38,7 @@ class PositionedList extends StatefulWidget {
     this.physics,
     this.padding,
     this.cacheExtent,
+    this.shrinkWrap = false,
     this.semanticChildCount,
     this.addSemanticIndexes = true,
     this.addRepaintBoundaries = true,
@@ -48,7 +49,7 @@ class PositionedList extends StatefulWidget {
 
   /// Number of items the [itemBuilder] can produce.
   final int itemCount;
-
+  final bool shrinkWrap;
   /// Called to build children for the list with
   /// 0 <= index < itemCount.
   final IndexedWidgetBuilder itemBuilder;
@@ -156,6 +157,7 @@ class _PositionedListState extends State<PositionedList> {
   Widget build(BuildContext context) => RegistryWidget(
         elementNotifier: registeredElements,
         child: UnboundedCustomScrollView(
+          shrinkWrap: widget.shrinkWrap,
           anchor: widget.alignment,
           center: _centerKey,
           controller: scrollController,

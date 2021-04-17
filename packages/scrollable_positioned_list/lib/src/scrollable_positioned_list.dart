@@ -47,6 +47,7 @@ class ScrollablePositionedList extends StatefulWidget {
     this.physics,
     this.semanticChildCount,
     this.padding,
+    this.shrinkWrap = false,
     this.addSemanticIndexes = true,
     this.addAutomaticKeepAlives = true,
     this.addRepaintBoundaries = true,
@@ -73,6 +74,7 @@ class ScrollablePositionedList extends StatefulWidget {
     this.physics,
     this.semanticChildCount,
     this.padding,
+    this.shrinkWrap = false,
     this.addSemanticIndexes = true,
     this.addAutomaticKeepAlives = true,
     this.addRepaintBoundaries = true,
@@ -85,6 +87,7 @@ class ScrollablePositionedList extends StatefulWidget {
 
   /// Number of items the [itemBuilder] can produce.
   final int itemCount;
+  final bool shrinkWrap;
 
   /// Called to build children for the list with
   /// 0 <= index < itemCount.
@@ -347,6 +350,7 @@ class _ScrollablePositionedListState extends State<ScrollablePositionedList>
                       scrollDirection: widget.scrollDirection,
                       reverse: widget.reverse,
                       cacheExtent: cacheExtent,
+                      shrinkWrap: widget.shrinkWrap,
                       alignment: primary.alignment,
                       physics: widget.physics,
                       addSemanticIndexes: widget.addSemanticIndexes,
