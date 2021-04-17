@@ -302,10 +302,10 @@ class _PositionedListState extends State<PositionedList> {
           return;
         }
         final positions = <ItemPosition>[];
-        RenderViewport? viewport;
+        dynamic viewport;
         for (var element in registeredElements.value!) {
           final RenderBox box = element.renderObject as RenderBox;
-          viewport ??= RenderAbstractViewport.of(box) as RenderViewport?;
+          viewport ??= RenderAbstractViewport.of(box);
           final ValueKey<int> key = element.widget.key as ValueKey<int>;
           if (widget.scrollDirection == Axis.vertical) {
             final reveal = viewport!.getOffsetToReveal(box, 0).offset;
