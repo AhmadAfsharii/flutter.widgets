@@ -159,7 +159,6 @@ class _PositionedListState extends State<PositionedList> {
         child: UnboundedCustomScrollView(
           shrinkWrap: widget.shrinkWrap,
           anchor: widget.alignment,
-          center: _centerKey,
           controller: scrollController,
           scrollDirection: widget.scrollDirection,
           reverse: widget.reverse,
